@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1792763931915,
+      "tag": "0000_overjoyed_jetstream",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792765001757,
+      "tag": "0001_server_only_access",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792765349412,
+      "tag": "0002_provider_cooldowns",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+name: Collect technology intelligence
+on:
+  schedule:
+    - cron: '23 */2 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: signal-ingestion
+  cancel-in-progress: false
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      GITHUB_TOKEN: ${{ secrets.SOURCE_GITHUB_TOKEN || github.token }}
+      EXTRA_RSS_SOURCES: ${{ vars.EXTRA_RSS_SOURCES }}
+      AWS_STATUS_FEED: ${{ vars.AWS_STATUS_FEED }}
+      INGEST_USER_AGENT: ${{ vars.INGEST_USER_AGENT }}
+      ENABLE_AI: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run db:migrate
+      - run: npm run ingest

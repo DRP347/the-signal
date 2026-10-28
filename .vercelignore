@@ -1,0 +1,15 @@
+.git
+.github
+.local
+.unlazy
+.next
+.next-review
+node_modules
+artifacts
+docs
+tests
+.env*
+*.tsbuildinfo
+GATES.md
+scripts/*check*
+scripts/*2*

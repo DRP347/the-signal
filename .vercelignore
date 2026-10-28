@@ -13,3 +13,7 @@ tests
 GATES.md
 scripts/*check*
 scripts/*2*
+
+.agents
+skills-lock.json
+GATES.md

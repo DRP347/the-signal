@@ -283,10 +283,10 @@ try {
   await p.reload({ waitUntil: "networkidle" });
   await expect(p.getByLabel("Text size", { exact: true })).toHaveValue("large");
   report.functional.push("Reading size persists");
-  await p.getByRole("button", { name: "Switch to dark theme" }).click();
+  await p.getByRole("button", { name: "Switch to dark theme" }).first().click();
   await p.reload({ waitUntil: "networkidle" });
   await expect(p.locator("html")).toHaveAttribute("data-theme", "dark");
-  await p.getByRole("button", { name: "Switch to light theme" }).click();
+  await p.getByRole("button", { name: "Switch to light theme" }).first().click();
   report.functional.push("Theme persists");
   await go("/__local_reading_fixture");
   await p.getByRole("button", { name: "Focus mode", exact: true }).click();

@@ -737,6 +737,7 @@ body:has(.reading-tools[data-focus="true"]) .story-detail {
   }
   .masthead-main {
     display: flex;
+    flex-wrap: wrap;
     padding: 24px 0 20px;
   }
   .wordmark {

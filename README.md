@@ -72,7 +72,7 @@ scripts/                 Local database, migrations, worker, verification
 
 ## Automation and deployment
 
-Nothing has been published or deployed. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for an optional Supabase + Node hosting setup, workflow secrets, realistic free-tier limits, and maintenance. GitHub Actions cannot run until this repository is pushed to a repository you control and its secrets are configured.
+Production: https://the-signal-eight-lake.vercel.app — hosted on Vercel with a Neon Free PostgreSQL database. The GitHub Actions ingestion workflow runs every two hours using the repository DATABASE_URL secret (direct database connection for session locking). Vercel uses the pooled connection for web requests. Deployments currently use the Vercel CLI; automatic GitHub deployments require granting the Vercel GitHub integration access to this repository. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for maintenance and deployment details.
 
 Read [docs/SOURCES.md](docs/SOURCES.md) for official endpoint references, activation rules and access limitations. Read [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for data semantics and tradeoffs. [docs/VERIFICATION.md](docs/VERIFICATION.md) records actual local results and remaining gaps.
 
